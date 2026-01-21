@@ -73,7 +73,7 @@ function goToDetails(id: number) {
             <tr v-for="order in orders" :key="order.id">
               <td data-label="ID" class="mono">#{{ order.id }}</td>
               
-              <td data-label="Cliente" class="font-bold">{{ order.client }}</td>
+              <td data-label="Cliente" class="font-bold">{{ order.clientName }}</td>
               
               <td data-label="Data">{{ order.dateFormatted }}</td>
               

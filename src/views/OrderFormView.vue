@@ -38,8 +38,6 @@ async function handleSubmit() {
     await OrderService.create({
       clientName: form.clientName,
       status: 'PENDENTE',
-      total: calculatedTotal.value,
-      date: new Date().toISOString(),
       items: form.items.map(i => ({ 
         product: i.product, 
         qty: i.qty 

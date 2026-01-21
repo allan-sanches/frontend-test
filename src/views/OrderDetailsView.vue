@@ -125,7 +125,7 @@ async function changeStatus(newStatus: 'PROCESSADO' | 'ENTREGUE' | 'CANCELADO') 
       <section class="info-grid">
         <div class="info-group">
           <label>Cliente</label>
-          <p>{{ order.client }}</p>
+          <p>{{ order.clientName }}</p>
         </div>
         
         <div class="info-group">

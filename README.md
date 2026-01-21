@@ -165,31 +165,6 @@ Services: Mocking de chamadas API para garantir isolamento.
 
 Componentes: Renderização correta e interação básica.
 
-## Decisões de Arquitetura
-
-### 1. Camada de Serviço e DTOs (Data Transfer Objects)
-Para desacoplar a visualização da API, adotei o padrão de Camada de Serviço.
-
-**OrderService:** Centraliza as regras de negócio (como a geração sequencial de IDs para evitar hashs aleatórios do json-server) e chamadas HTTP.
-
-**OrderDTO:** Uma Classe que intercepta os dados da API e realiza a "higiene" e formatação (datas em pt-BR, moeda em BRL, cores de status) antes que os dados cheguem aos componentes Vue.
-
-### 2. Responsividade e estilização
-Optei por não utilizar frameworks de UI (como Bootstrap, Tailwind ou Vuetify) por ser um projeto simples.
-
-Criei um sistema baseado em variáveis CSS (--primary-color, --accent-color).
-
-Utilizei Media Queries para refatorar a tabela de pedidos: no Desktop ela é uma tabela tradicional; no Mobile, transforma-se em uma lista de cartões com labels explicativos, resolvendo o problema de visualização de dados tabulares em telas pequenas.
-
-### 3. Segurança e Robustez
-**Validação de Rotas:** O componente de detalhes valida se o ID da URL é numérico. Isso previne erros de JavaScript caso o usuário tente acessar /orders/texto-invalido.
-
-**Programação Defensiva:** Tratamento de objetos nulos no DTO (ex: produtos sem nome recebem um valor padrão) para evitar quebras na interface.
-
-**Correção de Race Conditions:** Implementação de estratégias para garantir que a leitura da lista só ocorra após a escrita completa do novo pedido no json-server.
-
-### 4. Gestão de Estado
-O Pinia foi escolhido pela sua simplicidade e integração nativa com Vue 3 para persistir a sessão do usuário e compartilhar dados de autenticação (como o nome do usuário) entre o Login e o Header.
 
 ##  Melhorias Futuras (Roadmap)
 

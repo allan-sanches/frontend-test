@@ -196,6 +196,26 @@ Este projeto focou na lógica e na estrutura dos componentes. Para uma versão d
 * **Atual:** Testes unitários focados na lógica do DTO.
 * **Melhoria:** Expandir a cobertura de testes para os **Componentes** (verificar se o botão desabilita durante o loading, se a lista renderiza os itens corretos, etc).
 
+
+## Screenshots
+### Desktop
+<img width="467" height="533" alt="image" src="https://github.com/user-attachments/assets/0a6351fa-a715-411d-8c43-3f825a3da553" />
+<img width="1325" height="481" alt="image" src="https://github.com/user-attachments/assets/e5a26a16-d286-4ca4-a31f-ccbbb1e32e88" />
+<img width="938" height="539" alt="image" src="https://github.com/user-attachments/assets/4f263fc7-04dd-4553-a924-084acf45a3e5" />
+<img width="826" height="563" alt="image" src="https://github.com/user-attachments/assets/ff83badb-1b46-4804-8e6f-101019430669" />
+
+### Mobile
+<img width="251" height="506" alt="image" src="https://github.com/user-attachments/assets/91058b04-a9e8-4b6d-a666-f4434399f5f5" />
+<img width="257" height="607" alt="image" src="https://github.com/user-attachments/assets/25805a10-976a-4904-ac3b-3c1a442c52ea" />
+<img width="257" height="538" alt="image" src="https://github.com/user-attachments/assets/25b5d1dd-2f18-4bbf-874b-a836ed3f889a" />
+<img width="257" height="539" alt="image" src="https://github.com/user-attachments/assets/15bbe38e-6a0d-4a55-9972-1cfdb22eb5fa" />
+
+
+
+
+
+
+
 ---
 
 Este projeto foi desenvolvido com foco em clareza arquitetural, testabilidade e boas práticas de engenharia front-end, priorizando soluções simples, escaláveis e fáceis de manter.

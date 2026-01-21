@@ -2,6 +2,7 @@
 import { reactive, ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import OrderService from '../services/OrderService';
+import { OrderStatus } from '../enums/OrderStatus.ts';
 
 const router = useRouter();
 const loading = ref(false);
@@ -32,26 +33,38 @@ function removeItem(index: number) {
 async function handleSubmit() {
   if (!form.clientName) return alert('Preencha o nome do cliente');
   
+  
+  const hasInvalidItems = form.items.some(i => !i.product || i.qty <= 0);
+  if (hasInvalidItems) return alert('Verifique os itens (nome e quantidade).');
+
   loading.value = true;
   
   try {
     await OrderService.create({
       clientName: form.clientName,
-      status: 'PENDENTE',
+      status: OrderStatus.PENDENTE, 
+      
+     
+      total: calculatedTotal.value,     
+      date: new Date().toISOString(),   
+      
       items: form.items.map(i => ({ 
         product: i.product, 
-        qty: i.qty 
-      }))
+        qty: i.qty,
+        price: i.price  
+            }))
     });
 
-  setTimeout(() => {
+    // Pequeno delay para UX
+    setTimeout(() => {
        router.push('/orders'); 
     }, 500);
+
   } catch (error) {
     console.error(error);
     alert('Erro ao criar pedido.');
   } finally {
-    loading.value = false;
+    // O loading continua true até sair da página
   }
 }
 </script>

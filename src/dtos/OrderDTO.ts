@@ -1,10 +1,13 @@
 import type { IOrderAPI, IOrderItem } from '../interfaces/IOrder';
+import { OrderStatus } from '../enums/OrderStatus.ts';
 
 export class OrderDTO {
   id: number;
   clientName: string;
   status: string;
+  total: number
   totalFormatted: string;
+  date: string;
   dateFormatted: string;
   itemsSummary: string;
   statusColor: string;
@@ -14,7 +17,8 @@ export class OrderDTO {
     this.id = data.id;
     this.clientName = data.clientName; 
     this.status = data.status;
-    
+    this.date = data.date;
+    this.total = data.total;
     this.items = data.items || [];
 
 
@@ -37,13 +41,13 @@ export class OrderDTO {
 
   private getStatusColor(status: string): string {
     switch (status) {
-      case 'ENTREGUE': return 'var(--status-success)';
-      case 'PENDENTE': return 'var(--status-warning)';
-      case 'CANCELADO': return 'var(--status-danger)';
+      case OrderStatus.ENTREGUE: return 'var(--status-success)';
+      case OrderStatus.PENDENTE: return 'var(--status-warning)';
+      case OrderStatus.CANCELADO: return 'var(--status-danger)';
+      case OrderStatus.PROCESSADO: return 'var(--status-info)';
       default: return 'var(--status-info)';
     }
   }
-
   private getItemsSummary(items: IOrderItem[]): string {
     if (!items || items.length === 0) return 'Sem itens';
     const firstItem = items[0]?.product || 'Produto';

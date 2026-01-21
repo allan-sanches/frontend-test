@@ -21,15 +21,17 @@
       "clientName": "Tech Solutions Ltda",
       "status": "PENDENTE",
       "total": 4500,
-      "date": "2024-01-20T14:30:00.000Z",
+      "date": "2026-01-20T14:30:00.000Z",
       "items": [
         {
           "product": "Monitor Dell 27",
-          "qty": 2
+          "qty": 2,
+          "price": 1500
         },
         {
           "product": "Teclado Mecânico",
-          "qty": 2
+          "qty": 2,
+          "price": 750
         }
       ]
     },
@@ -38,11 +40,12 @@
       "clientName": "Consultoria Silva",
       "status": "PROCESSADO",
       "total": 1200.5,
-      "date": "2024-01-18T09:15:00.000Z",
+      "date": "2026-01-18T09:15:00.000Z",
       "items": [
         {
           "product": "Cadeira Ergonômica",
-          "qty": 1
+          "qty": 1,
+          "price": 1200.5
         }
       ]
     },
@@ -51,76 +54,26 @@
       "clientName": "Mercado João",
       "status": "ENTREGUE",
       "total": 350,
-      "date": "2024-01-10T11:00:00.000Z",
+      "date": "2026-01-10T11:00:00.000Z",
       "items": [
         {
           "product": "Webcam Logitech",
-          "qty": 1
+          "qty": 1,
+          "price": 350
         }
       ]
     },
     {
       "id": "1004",
-      "clientName": "Allan Sanches Soluções em Tecnologia",
-      "status": "PROCESSADO",
-      "total": 8000,
-      "date": "2026-01-21T17:07:34.926Z",
-      "items": [
-        {
-          "product": "Macbook air",
-          "qty": 2
-        }
-      ]
-    },
-    {
-      "id": "6789",
-      "clientName": "nnn",
+      "clientName": "Startup Inovação",
       "status": "CANCELADO",
-      "total": 6000,
-      "date": "2026-01-21T18:08:53.539Z",
+      "total": 5000,
+      "date": "2026-01-05T16:20:00.000Z",
       "items": [
         {
-          "product": "hhh",
-          "qty": 3
-        }
-      ]
-    },
-    {
-      "id": "1006",
-      "clientName": "allmm",
-      "status": "CANCELADO",
-      "total": 2222,
-      "date": "2026-01-21T18:09:47.494Z",
-      "items": [
-        {
-          "product": "mmmmmm",
-          "qty": 1
-        }
-      ]
-    },
-    {
-      "id": "1007",
-      "clientName": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
-      "status": "CANCELADO",
-      "total": 10,
-      "date": "2026-01-21T18:10:20.128Z",
-      "items": [
-        {
-          "product": "lllllllllllllllllll",
-          "qty": 1
-        }
-      ]
-    },
-    {
-      "id": "1008",
-      "clientName": "fff ffff ffff ",
-      "status": "CANCELADO",
-      "total": 10,
-      "date": "2026-01-21T18:14:56.251Z",
-      "items": [
-        {
-          "product": "hhh hhh",
-          "qty": 1
+          "product": "Licença Software Pro",
+          "qty": 5,
+          "price": 1000
         }
       ]
     }

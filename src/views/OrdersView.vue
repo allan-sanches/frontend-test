@@ -40,7 +40,7 @@ function goToDetails(id: number) {
   <div class="layout">
     <header class="navbar">
       <div class="brand">
-        <h1>Be.<span class="highlight">Compliance</span></h1>
+        <h1>Be.<span class="highlight">Delivery</span></h1>
       </div>
       <div class="user-info">
         <span>Olá, <strong>{{ authStore.userName }}</strong></span>

@@ -75,7 +75,8 @@ async function handleLogin() {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--background-body); 
+  background-color: var(--background-body);
+  padding: 1rem; 
 }
 
 .login-card {
@@ -171,5 +172,15 @@ button:disabled {
   font-size: 0.85rem;
   border-top: 1px solid var(--border-color);
   padding-top: 1rem;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem; 
+    box-shadow: none; 
+    background: transparent; 
+  
+  h1 { font-size: 1.5rem; }
+}
 }
 </style>

@@ -21,15 +21,15 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/orders/:id',
-      name: 'order-details',
-      component: OrderDetailsView,
-      meta: { requiresAuth: true }
-    },
-    {
       path: '/orders/new',
       name: 'new-order',
       component: OrderFormView,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/orders/:id',
+      name: 'order-details',
+      component: OrderDetailsView,
       meta: { requiresAuth: true }
     },
     {

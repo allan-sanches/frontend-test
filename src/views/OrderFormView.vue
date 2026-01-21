@@ -46,7 +46,9 @@ async function handleSubmit() {
       }))
     });
 
-    router.push('/orders'); 
+  setTimeout(() => {
+       router.push('/orders'); 
+    }, 500);
   } catch (error) {
     console.error(error);
     alert('Erro ao criar pedido.');
@@ -90,6 +92,7 @@ async function handleSubmit() {
 
         <div v-for="(item, index) in form.items" :key="index" class="item-row">
           <div class="col-grow">
+            <span class="mobile-label">Produto</span>
             <input 
               v-model="item.product" 
               type="text" 
@@ -100,6 +103,7 @@ async function handleSubmit() {
           </div>
           
           <div class="col-small">
+            <span class="mobile-label">Qtd.</span>
             <input 
               v-model.number="item.qty" 
               type="number" 
@@ -107,11 +111,12 @@ async function handleSubmit() {
               class="clean-number text-center"
               required
               aria-label="Quantidade"
-              placeholder="Qtd"
+              placeholder="1"
             />
           </div>
 
           <div class="col-medium">
+            <span class="mobile-label">Preço (R$)</span>
             <input 
               v-model.number="item.price" 
               type="number" 
@@ -125,6 +130,7 @@ async function handleSubmit() {
           </div>
 
           <div class="col-action">
+             <span class="mobile-label" style="visibility: hidden;">Del</span>
             <button 
               type="button" 
               @click="removeItem(index)" 
@@ -155,7 +161,6 @@ async function handleSubmit() {
 </template>
 
 <style scoped>
-/* --- Layout Base --- */
 .form-container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
 
 header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
@@ -163,8 +168,6 @@ h2 { color: var(--primary-color); margin: 0; }
 
 .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-sm); }
 .form-section { margin-bottom: 2rem; }
-
-/* Cabeçalho da Seção Interna */
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 .section-header h3 { margin: 0; font-size: 1.1rem; color: var(--text-main); }
 
@@ -172,95 +175,79 @@ label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--te
 input { padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem; width: 100%; transition: border 0.2s; color: var(--text-main); }
 input:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 2px rgba(30, 58, 69, 0.1); }
 
-/* --- Grid System (Desktop) --- */
-.items-grid-header { 
-  display: flex; gap: 10px; margin-bottom: 0.5rem; 
-  color: var(--text-light); font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
-  padding-left: 2px;
-}
+/* Grid Desktop */
+.items-grid-header { display: flex; gap: 10px; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; padding-left: 2px; }
+.item-row { display: flex; gap: 10px; margin-bottom: 0.8rem; align-items: flex-end; /* Alinha inputs com botões */ }
 
-.item-row { display: flex; gap: 10px; margin-bottom: 0.8rem; align-items: center; }
+.col-grow, .lbl-product { flex: 2; }
+.col-medium, .lbl-price { flex: 1; }
+.col-small, .lbl-qty    { width: 80px; }
+.col-action, .lbl-action { width: 40px; text-align: right; }
 
-/* Larguras Flex */
-.col-grow, .lbl-product { flex: 2; }       
-.col-medium, .lbl-price { flex: 1; }       
-.col-small, .lbl-qty    { width: 80px; }  
-.col-action, .lbl-action { width: 40px; text-align: right; } 
-
-/* Utilitários de Input */
 .text-center { text-align: center; }
-
 .clean-number { -moz-appearance: textfield; }
 .clean-number::-webkit-outer-spin-button, .clean-number::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
-/* --- Botões --- */
-.btn-icon { 
-  background: var(--danger-light); color: var(--status-danger); border: none; 
-  width: 36px; height: 36px; border-radius: 4px; 
-  cursor: pointer; font-size: 1.2rem; 
-  display: flex; align-items: center; justify-content: center; 
-  transition: background 0.2s;
-}
+.btn-icon { background: var(--danger-light); color: var(--status-danger); border: none; width: 36px; height: 36px; border-radius: 4px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; margin-top: auto; }
 .btn-icon:hover:not(:disabled) { background: var(--danger-light-hover); }
 .btn-icon:disabled { opacity: 0.3; cursor: not-allowed; background: #f3f4f6; color: #9ca3af; }
 
-.btn-small { 
-  background: var(--primary-light); color: var(--primary-color); border: none; 
-  padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; 
-  font-weight: 600; font-size: 0.85rem; 
-}
+.btn-small { background: var(--primary-light); color: var(--primary-color); border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
 .btn-small:hover { background: var(--primary-light-hover); }
 
-.btn-primary { 
-  background: var(--accent-color); color: white; border: none; 
-  padding: 0.85rem 2rem; border-radius: 6px; font-weight: 600; cursor: pointer; 
-  transition: opacity 0.2s;
-}
+.btn-primary { background: var(--accent-color); color: white; border: none; padding: 0.85rem 2rem; border-radius: 6px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
 .btn-primary:hover:not(:disabled) { opacity: 0.9; }
+.btn-secondary { background: transparent; border: 1px solid var(--border-color); color: var(--text-light); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
 
-.btn-secondary { 
-  background: transparent; border: 1px solid var(--border-color); color: var(--text-light); 
-  padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; 
-}
-
-/* Footer */
 .footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 1rem; }
 .total-box { display: flex; flex-direction: column; }
 .total-box span { color: var(--text-light); font-size: 0.9rem; }
 .total-box strong { color: var(--primary-color); font-size: 1.4rem; }
 
+.mobile-label { display: none; }
+
 @media (max-width: 768px) {
   .form-container { padding: 1rem; margin: 1rem auto; }
   .card { padding: 1.5rem; }
-
   .header { margin-bottom: 1.5rem; }
 
+  /* Esconde cabeçalho desktop */
   .items-grid-header { display: none; }
 
+  /* Mostra Labels Mobile */
+  .mobile-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
   .item-row {
-    flex-wrap: wrap; 
-    background: #f8fafc; 
+    flex-wrap: wrap;
+    background: #f8fafc;
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
     gap: 0.8rem;
-    position: relative; 
+    align-items: flex-start; 
   }
 
-  /* 3. Ajuste de colunas no Mobile */
-  
-
-  .col-grow { flex: 0 0 100%; } 
+  .col-grow { flex: 0 0 100%; }
   .col-small { flex: 1; }
   .col-medium { flex: 1; }
-  .col-action { width: auto; }
-  input { padding: 0.85rem; font-size: 1rem; }
+  .col-action { width: auto; align-self: flex-end;  } 
+  
 
+  .col-action .btn-icon { margin-top: 1.3rem; }
+
+  input { padding: 0.85rem; font-size: 1rem; }
 
   .footer {
     flex-direction: column;
     gap: 1.5rem;
-    align-items: stretch; 
+    align-items: stretch;
     text-align: center;
   }
   

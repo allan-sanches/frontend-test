@@ -24,7 +24,7 @@ async function handleLogin() {
 <template>
   <div class="login-container">
     <div class="login-card">
-      <h1>Be.<span class="highlight">Compliance</span></h1>
+      <h1>Be.<span class="highlight">Delivery</span></h1>
       <p class="subtitle">Entre com suas credenciais</p>
 
       <form @submit.prevent="handleLogin">

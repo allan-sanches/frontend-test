@@ -3,6 +3,7 @@ import { useAuthStore } from '../stores/auth';
 import LoginView from '../views/LoginView.vue';
 import OrdersView from '../views/OrdersView.vue';
 import OrderFormView from '../views/OrderFormView.vue';
+import OrderDetailsView from '../views/OrderDetailsView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +18,12 @@ const router = createRouter({
       path: '/orders',
       name: 'orders',
       component: OrdersView,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/orders/:id',
+      name: 'order-details',
+      component: OrderDetailsView,
       meta: { requiresAuth: true }
     },
     {
